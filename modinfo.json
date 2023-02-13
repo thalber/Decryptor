@@ -1,0 +1,10 @@
+{
+	"id": "decryptor",
+	"name": "Decryptor",
+	"version": "0.1",
+	"authors": "Thalber",
+	"description": "Dumps all ingame text in plain.",
+	"requirements": [],
+	"requirements_names": [],
+	"checksum_override_version": false
+}
