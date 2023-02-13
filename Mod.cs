@@ -37,8 +37,7 @@ public class Mod : BepInEx.BaseUnityPlugin
 			c.Emit(OpCodes.Ldloc_S, context.Body.Variables[4]);
 			c.EmitDelegate((string fname) =>
 			{
-				Logger.LogDebug($"conv {fname}");
-				if (fname.IndexOf('-') > -1) return fname[..fname.IndexOf('-')];
+				foreach (string sub in fname.Split('-')) if (int.TryParse(sub, out _)) return sub;
 				return fname;
 			});
 			c.Emit(OpCodes.Stloc_S, context.Body.Variables[4]);
