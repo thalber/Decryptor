@@ -10,11 +10,9 @@
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
     <Authors>Thalber</Authors>
     <Description>Decrypts Rain World text assets.</Description>
-    <Copyright>GPL v3</Copyright>
-    <FileVersion>0.1</FileVersion>
-    <AssemblyVersion>0.1</AssemblyVersion>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Copyright>Unlicense</Copyright>
+    <FileVersion>0.2</FileVersion>
+    <AssemblyVersion>0.2</AssemblyVersion>
   </PropertyGroup>
   <!-- Debug configuration. Build for release. -->
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

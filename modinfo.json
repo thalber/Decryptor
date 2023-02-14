@@ -1,9 +1,9 @@
 {
 	"id": "decryptor",
 	"name": "Decryptor",
-	"version": "0.1",
+	"version": "0.2",
 	"authors": "Thalber",
-	"description": "Dumps all ingame text in plain.",
+	"description": "Dumps most ingame text in plain text. Runs once on startup, freezing the game for a few seconds. Outputs go into Rain World/RainWorld_Data/StreamingAssets/decrypt.<LINE>Source code available here: https://github.com/thalber/Decryptor",
 	"requirements": [],
 	"requirements_names": [],
 	"checksum_override_version": false

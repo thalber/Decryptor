@@ -7,18 +7,19 @@ using IO = System.IO;
 using UTL = RWCustom.Custom;
 namespace Decryptor;
 
-[BepInEx.BepInPlugin("thalber.decryptor", "Decryptor", "0.1")]
+[BepInEx.BepInPlugin("thalber.decryptor", "Decryptor", "0.2")]
 public class Mod : BepInEx.BaseUnityPlugin
 {
+	bool __ranOnce = false;
 	public void OnEnable()
 	{
 
 		Logger.LogError($"DECRYPT ON");
 
-		string ilc = "";
+		//string ilc = "";
 		IL.InGameTranslator.EncryptDecryptFile += (context) =>
 		{
-			Logger.LogWarning("ilhook go");
+			//Logger.LogWarning("ilhook go");
 			ILCursor c = new(context);
 			try
 			{
@@ -42,12 +43,13 @@ public class Mod : BepInEx.BaseUnityPlugin
 			});
 			c.Emit(OpCodes.Stloc_S, context.Body.Variables[4]);
 			//
-			ilc = context.ToString();
+			//ilc = context.ToString();
 		};
 		On.RainWorld.OnModsInit += (orig, self) =>
 		{
 			orig(self);
-			IO.File.WriteAllText(IO.Path.Combine(UTL.RootFolderDirectory(), "decildump"), ilc);
+			if (__ranOnce) return;
+			//IO.File.WriteAllText(IO.Path.Combine(UTL.RootFolderDirectory(), "decildump"), ilc);
 			string outroot = IO.Path.Combine(UTL.RootFolderDirectory(), "decrypt");
 			Logger.LogWarning(IO.Directory.CreateDirectory(outroot));
 			foreach (string rawlang in InGameTranslator.LanguageID.values.entries)
@@ -67,6 +69,7 @@ public class Mod : BepInEx.BaseUnityPlugin
 					catch (Exception ex) { Logger.LogError($"Error decrypting file {ex}"); }
 				}
 			}
+			__ranOnce = true;
 		};
 
 	}
